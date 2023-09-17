@@ -9,10 +9,25 @@ const FriendsPage = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome</h2>
-      <input type="file" onChange={handleUpload} />
-      <button onClick={() => navigate("/login")}>Logout</button>
+    <div className="outer-container">
+      <div>
+        <h2>Your Friends</h2>
+        <div>
+          <li>DevObs</li>
+          <li>DevObs</li>
+          <li>DevObs</li>
+          <li>DevObs</li>
+          <li>DevObs</li>
+        </div>
+        <button
+          onClick={() => {
+            navigate("/login");
+            localStorage.removeItem("isLoggedIn");
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

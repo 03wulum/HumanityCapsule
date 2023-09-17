@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css";
 
 export default function LoginPage({ history }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +14,7 @@ export default function LoginPage({ history }) {
       // Set user as logged in
       localStorage.setItem("isLoggedIn", "true");
       // Redirect to the welcome page
-      history.push("/welcome");
+      navigate("/welcome");
     } else {
       alert("Invalid username or password");
       localStorage.setItem("isLoggedIn", "false");

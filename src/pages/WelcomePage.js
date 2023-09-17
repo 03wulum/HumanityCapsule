@@ -9,10 +9,25 @@ const WelcomePage = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome</h2>
-      <input type="file" onChange={handleUpload} />
-      <button onClick={() => navigate("/login")}>Logout</button>
+    <div className="outer-container">
+      <div className="container">
+        <div>
+          <h1>Welcome to The Humanity Capsule</h1>
+        </div>
+        <div>
+          <input type="file" onChange={handleUpload} />
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              navigate("/login");
+              localStorage.removeItem("isLoggedIn");
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
