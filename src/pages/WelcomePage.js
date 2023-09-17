@@ -1,12 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "../components/image/ImageUpload";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
-
-  const handleUpload = (e) => {
-    // const file = e.target.files[0];
-    // Handle the file upload logic here
-  };
 
   return (
     <div className="outer-container">
@@ -15,7 +11,8 @@ const WelcomePage = () => {
           <h1>Welcome to The Humanity Capsule</h1>
         </div>
         <div>
-          <input type="file" onChange={handleUpload} />
+          <h3>Your Photos</h3>
+          <ImageUpload />
         </div>
         <div>
           <button
