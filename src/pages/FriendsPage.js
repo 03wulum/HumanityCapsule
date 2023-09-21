@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 const FriendsPage = () => {
   const navigate = useNavigate();
 
-  const handleUpload = (e) => {
-    // const file = e.target.files[0];
-    // Handle the file upload logic here
-  };
+  //   const handleUpload = (e) => {
+  //     // const file = e.target.files[0];
+  //     // Handle the file upload logic here
+  //   };
 
   return (
     <div className="outer-container">

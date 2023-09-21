@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css";
+import { signIn } from "../components/auth/SignIn";
 
-export default function LoginPage({ history }) {
+export default function LoginPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,11 +11,15 @@ export default function LoginPage({ history }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
-    if (username === "admin" && password === "password") {
+    if (username && password) {
+      const response = signIn(username, password);
       // Set user as logged in
-      localStorage.setItem("isLoggedIn", "true");
-      // Redirect to the welcome page
-      navigate("/welcome");
+      if (response && response.success) {
+        localStorage.setItem("isLoggedIn", response.success.toString());
+        navigate("/welcome");
+      } else {
+        localStorage.setItem("isLoggedIn", response.success.toString());
+      }
     } else {
       alert("Invalid username or password");
       localStorage.setItem("isLoggedIn", "false");
